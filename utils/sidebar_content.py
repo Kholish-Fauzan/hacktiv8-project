@@ -1,16 +1,30 @@
 import streamlit as st
 
 def render_custom_sidebar_content():
+    sidebar_content()
+
+def sidebar_content():
     st.markdown("---")
     st.subheader("Jelajahi Halaman Lain")
-    st.page_link("app.py", label="Beranda Utama", icon="🏠")
-    st.page_link("pages/2_Panduan & Tips.py", label="Panduan & Tips", icon="💡")
-    st.page_link("pages/3_Contoh & Inspirasi.py", label="Contoh & Inspirasi", icon="✨")
-    st.page_link("pages/4_Tentang Saya.py", label="Tentang Saya", icon="👤")
+    create_page_links()
 
     st.markdown("---")
 
     st.subheader("Bagaimana Kami Membantu Anda?")
+    show_help_info()
+
+def create_page_links():
+    links = [
+        ("app.py", "Beranda Utama", "🏠"),
+        ("pages/2_Panduan & Tips.py", "Panduan & Tips", "💡"),
+        ("pages/3_Contoh & Inspirasi.py", "Contoh & Inspirasi", "✨"),
+        ("pages/4_Tentang Saya.py", "Tentang Saya", "👤")
+    ]
+
+    for link, label, icon in links:
+        st.page_link(link, label, icon)
+
+def show_help_info():
     st.markdown("""
     Nusantara Story adalah teman setia Anda dalam **mengungkap dan membagikan pesona narasi Indonesia**. Kami memandu Anda melalui empat langkah mudah:
 
@@ -29,3 +43,6 @@ def render_sidebar_expander_content():
 
         Kami juga menggunakan **IBM Granite** untuk optimasi kode aplikasi ini. Dedikasi kami adalah menciptakan solusi yang intuitif dan efektif demi kemajuan narasi lokal.
         """)
+
+# Render sidebar content
+render_custom_sidebar_content()
