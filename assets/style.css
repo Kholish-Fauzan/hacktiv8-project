@@ -163,7 +163,7 @@ div[data-testid="stSelectbox"] .st-emotion-cache-1gcsa8n .st-emotion-cache-1d37g
 
 /* Streamlit Sidebar Styling */
 [data-testid="stSidebar"] {
-    background-color: #2C3E50;
+    background-color: #a4bfda;
     color: white;
     padding-top: 0.5rem;
     box-shadow: 2px 0 10px rgba(0,0,0,0.1);
