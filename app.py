@@ -123,27 +123,25 @@ if submit_button:
                     st.session_state.narasi_file_name = ""
 
             else:
-                # narasi_placeholder.error("Maaf, Kami gagal merangkai narasi yang valid. Coba ulangi atau sesuaikan input Anda.")
                 st.session_state.generated_narration = "" # Kosongkan jika gagal
                 st.error("Maaf, Kami gagal merangkai narasi yang valid. Coba ulangi atau sesuaikan input Anda.") # Tampilkan error di bagian bawah
 
         # --- Tahap 2: Analisis & Optimasi oleh Gemini ---
-        if st.session_state.generated_narration: 
-            if generate_analysis_data(gemini_model, lokasi_objek, st.session_state.generated_narration):
-                    st.session_state.generated_analysis = analysis_data # Simpan ke session state
-                    
-                    # Generate PDF bytes untuk analisis dan simpan juga ke session state
-                    pdf_bytes_analysis_temp = generate_analysis_pdf(analysis_data, f"Analisis_{judul_objek}")
-                    if pdf_bytes_analysis_temp:
-                        st.session_state.analisis_pdf_bytes = pdf_bytes_analysis_temp
-                        st.session_state.analisis_file_name = f"Analisis_Promosi_{judul_objek}.pdf"
-                    else:
-                        st.error("Gagal membuat PDF Analisis Promosi.")
-                        st.session_state.analisis_pdf_bytes = None
-                        st.session_state.analisis_file_name = ""
+        if st.session_state.generated_narration:  # Ensure narration is generated before analysis
+            if analysis_data := generate_analysis_data(gemini_model, lokasi_objek, st.session_state.generated_narration):  # Generate and assign analysis data
+                st.session_state.generated_analysis = analysis_data  # Store generated analysis data in session state
+
+                # Generate PDF bytes for analysis and store in session state
+                pdf_bytes_analysis_temp = generate_analysis_pdf(analysis_data, f"Analisis_{judul_objek}")
+                if pdf_bytes_analysis_temp:
+                    st.session_state.analisis_pdf_bytes = pdf_bytes_analysis_temp
+                    st.session_state.analisis_file_name = f"Analisis_Promosi_{judul_objek}.pdf"
+                else:
+                    st.error("Gagal membuat PDF Analisis Promosi.")
+                    st.session_state.analisis_pdf_bytes = None
+                    st.session_state.analisis_file_name = ""
             else:
-                # st.error("Maaf, Kami gagal mendapatkan analisis yang valid. Coba ulangi atau sesuaikan input Anda.")
-                st.session_state.generated_analysis = {} # Kosongkan jika gagal
+                st.session_state.generated_analysis = {}  # Kosongkan jika gagal
                 st.error("Maaf, Kami gagal mendapatkan analisis yang valid. Coba ulangi atau sesuaikan input Anda.") # Tampilkan error di bagian bawah
         else:
             st.warning("Analisis tidak dapat dilakukan karena narasi belum berhasil dibuat.")
