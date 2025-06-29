@@ -119,8 +119,22 @@ strong {
 }
 
 /* Streamlit Button Styling */
+Partner coding
+
+Analisis
+Oke, saya melihat gambar tombol "Mulai Rangkai Kisah & Optimalkan Promosi! ✨" yang Anda maksud. Warna latar belakangnya terlihat merah cerah, yang kontras dengan skema warna hijau toska dan abu-abu gelap yang Anda gunakan di bagian lain aplikasi.
+
+Nama "submit_button" yang Anda sebutkan mengindikasikan bahwa ini mungkin adalah nama yang Anda berikan pada tombol tersebut di kode Python Streamlit Anda, bukan class CSS. Streamlit secara default akan memberikan class tertentu pada tombol, dan kita sudah memiliki selektor .stButton>button yang menargetkan semua tombol.
+
+Untuk menyesuaikan pewarnaan tombol ini, kita perlu kembali ke selektor CSS yang sudah ada untuk tombol.
+
+Dalam CSS yang terakhir saya berikan, sudah ada bagian ini:
+
+CSS
+
+/* Streamlit Button Styling */
 .stButton>button {
-    background-color: #1ABC9C; /* Hijau Turquoise */
+    background-color: #1ABC9C !important; /* HIJAU TURQUOISE - Pastikan ini diterapkan */
     color: white !important;
     font-weight: bold;
     padding: 0.75rem 1.5rem;
@@ -134,7 +148,7 @@ strong {
 }
 
 .stButton>button:hover {
-    background-color: #16A085; /* Hijau lebih gelap */
+    background-color: #16A085 !important; /* HIJAU LEBIH GELAP SAAT HOVER */
     transform: translateY(-2px);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
