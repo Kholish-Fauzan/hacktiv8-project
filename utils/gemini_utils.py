@@ -92,7 +92,7 @@ def generate_analysis_data(model, lokasi_objek, narrative_text):
     """
 
     try:
-        response = model.generate_content(prompt, max_tokens=10000, temperature=0.7, top_p=0.4)
+        response = model.generate_content(prompt)
         json_text = response.text.strip()
         if json_text.startswith("```json"):
             json_text = json_text[len("```json"):].strip()
