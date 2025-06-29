@@ -1,6 +1,5 @@
 import json
 import streamlit as st
-#import google.generativeai as genai
 
 def get_language_from_audience(target_audiens):
     target_audiens_lower = target_audiens.lower()
