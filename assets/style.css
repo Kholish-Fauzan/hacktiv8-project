@@ -163,7 +163,7 @@ div[data-testid="stSelectbox"] .st-emotion-cache-1gcsa8n .st-emotion-cache-1d37g
 
 /* Streamlit Sidebar Styling */
 [data-testid="stSidebar"] {
-    background-color: #19242f;
+    background-color: #19242f; /* Warna latar belakang gelap */
     color: white;
     padding-top: 0.5rem;
     box-shadow: 2px 0 10px rgba(0,0,0,0.1);
@@ -171,6 +171,27 @@ div[data-testid="stSelectbox"] .st-emotion-cache-1gcsa8n .st-emotion-cache-1d37g
     top: 0;
     height: 100vh;
     overflow-y: auto;
+}
+
+[data-testid="stSidebarNav"] > ul > li > a[data-testid="stPageLink"] {
+    display: none; /* Sembunyikan sepenuhnya */
+}
+
+[data-testid="stSidebarNav"] > ul > li > a > div:not(:first-child) { /* Ini menargetkan div teks yang tidak memiliki ikon di depannya */
+    display: none;
+}
+/* Atau, alternatif yang lebih aman: hanya target tautan di bawah stSidebarNav yang memiliki teks 'app' atau nama halaman tanpa ikon */
+[data-testid="stSidebarNav"] > ul > li > a[href="/"] { /* app.py biasanya root */
+    display: none;
+}
+[data-testid="stSidebarNav"] > ul > li > a[href="/Panduan_&_Tips"] {
+    display: none;
+}
+[data-testid="stSidebarNav"] > ul > li > a[href="/Contoh_&_Inspirasi"] {
+    display: none;
+}
+[data-testid="stSidebarNav"] > ul > li > a[href="/Tentang_Saya"] {
+    display: none;
 }
 
 [data-testid="stSidebar"] > div > section > div > div:first-child {
@@ -183,11 +204,12 @@ div[data-testid="stSelectbox"] .st-emotion-cache-1gcsa8n .st-emotion-cache-1d37g
     padding-top: 0;
 }
 
+/* Penyesuaian warna teks dan ukuran header di sidebar */
 [data-testid="stSidebar"] h1,
 [data-testid="stSidebar"] h2,
 [data-testid="stSidebar"] h3,
 [data-testid="stSidebar"] h4 {
-    color: #ECF0F1;
+    color: #ECF0F1; /* Warna teks terang untuk semua header di sidebar */
     text-align: left;
     border-bottom: none;
     padding-bottom: 0;
@@ -199,18 +221,19 @@ div[data-testid="stSelectbox"] .st-emotion-cache-1gcsa8n .st-emotion-cache-1d37g
     font-size: 1.3rem;
     margin-top: 1.5rem;
     margin-bottom: 0.8rem;
-    color: #1ABC9C;
+    color: #1ABC9C; /* Warna khusus untuk h3 (misalnya "Jelajahi Halaman Lain") */
 }
 
 [data-testid="stSidebar"] h1 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
+    color: #ECF0F1; /* Pastikan judul utama sidebar juga terang */
 }
 
 [data-testid="stSidebar"] hr {
     margin-top: 0.75rem;
     margin-bottom: 0.75rem;
-    border-top: 1px solid #555555;
+    border-top: 1px solid #555555; /* Warna garis pemisah */
 }
 
 /* Custom Navigation Links */
@@ -220,7 +243,7 @@ div[data-testid="stSelectbox"] .st-emotion-cache-1gcsa8n .st-emotion-cache-1d37g
 
 .stSidebar [data-testid="stPageLink-wrapper"] a {
     background-color: transparent;
-    color: #ECF0F1;
+    color: #ECF0F1; /* Warna teks link default */
     border-radius: 0.5rem;
     padding: 0.75rem 1rem;
     transition: background-color 0.2s ease, color 0.2s ease;
@@ -232,8 +255,8 @@ div[data-testid="stSelectbox"] .st-emotion-cache-1gcsa8n .st-emotion-cache-1d37g
 }
 
 .stSidebar [data-testid="stPageLink-wrapper"] a:hover {
-    background-color: #34495E;
-    color: #1ABC9C;
+    background-color: #34495E; /* Warna latar belakang saat hover */
+    color: #1ABC9C; /* Warna teks saat hover */
 }
 
 .stSidebar [data-testid="stPageLink-wrapper"] a:active {
@@ -242,8 +265,8 @@ div[data-testid="stSelectbox"] .st-emotion-cache-1gcsa8n .st-emotion-cache-1d37g
 }
 
 .stSidebar [data-testid="stPageLink-wrapper"] a[aria-current="page"] {
-    background-color: #1ABC9C;
-    color: white;
+    background-color: #1ABC9C; /* Warna latar belakang halaman aktif */
+    color: white; /* Warna teks halaman aktif */
     font-weight: 600;
     outline: none;
     border: none;
@@ -256,7 +279,7 @@ div[data-testid="stSelectbox"] .st-emotion-cache-1gcsa8n .st-emotion-cache-1d37g
 
 /* Sidebar Expanders */
 [data-testid="stSidebarExpander"] {
-    background-color: #34495E;
+    background-color: #34495E; /* Warna latar belakang expander */
     border-radius: 0.5rem;
     margin-top: 1rem;
     padding: 0.5rem 1rem;
@@ -264,7 +287,7 @@ div[data-testid="stSelectbox"] .st-emotion-cache-1gcsa8n .st-emotion-cache-1d37g
 }
 
 [data-testid="stSidebarExpander"] div[role="button"] p {
-    color: #ECF0F1;
+    color: #ECF0F1; /* Warna teks judul expander */
     font-weight: bold;
 }
 
@@ -283,20 +306,20 @@ div[data-testid="stSelectbox"] .st-emotion-cache-1gcsa8n .st-emotion-cache-1d37g
 }
 
 [data-testid="stSidebar"] .stAlert > div[data-testid="stMarkdownContainer"] {
-    background-color: #225C6F;
-    color: #ECF0F1;
-    border-left: 5px solid #1ABC9C;
+    background-color: #225C6F; /* Latar belakang untuk alert di sidebar (misal info) */
+    color: #ECF0F1; /* Warna teks alert di sidebar */
+    border-left: 5px solid #1ABC9C; /* Warna border alert di sidebar */
 }
 
 /* Alerts (Main Content) */
 .stAlert > div[data-testid="stMarkdownContainer"].st-emotion-cache-r8x5j1 {
-    background-color: #FCF3CF;
+    background-color: #FCF3CF; /* Warning (kuning) */
     color: #B7950B;
     border-left: 5px solid #F1C40F;
 }
 
 .stAlert > div[data-testid="stMarkdownContainer"].st-emotion-cache-j4c9x8 {
-    background-color: #FADBD8;
+    background-color: #FADBD8; /* Error (merah) */
     color: #C0392B;
     border-left: 5px solid #E74C3C;
 }
