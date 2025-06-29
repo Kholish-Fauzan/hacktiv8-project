@@ -1,6 +1,5 @@
 import json
 import streamlit as st
-# Assuming google.generativeai exists and is properly configured
 import google.generativeai as genai
 
 def get_language_from_audience(target_audiens):
@@ -93,7 +92,7 @@ def generate_analysis_data(model, lokasi_objek, narrative_text):
     """
 
     try:
-        response = model.generate_content(prompt)
+        response = model.generate_content(prompt, max_tokens=4000, temperature=0.8, top_p=0.4)
         json_text = response.text.strip()
         if json_text.startswith("```json"):
             json_text = json_text[len("```json"):].strip()
