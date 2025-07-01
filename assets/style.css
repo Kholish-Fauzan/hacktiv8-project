@@ -36,26 +36,6 @@ div[data-testid="stSidebar"] > div > section:first-child > div:nth-child(2) {
     padding-top: 0 !important;
     margin-top: 0 !important;
 }
-/* --- END: CSS untuk MENYEMBUNYIKAN NAVIGASI DUPLIKAT DI SIDEBAR --- */
-
-div[data-testid="stImageContainer"] {
-    display: flex !important; /* Gunakan flexbox */
-    justify-content: center !important; /* Pusatkan secara horizontal */
-    align-items: center !important; /* Pusatkan secara vertikal jika ada tinggi */
-    margin: 1rem auto 1.5rem auto !important; /* Atur margin: top, right(auto), bottom, left(auto) */
-    width: auto !important; /* Pastikan lebarnya fleksibel atau auto */
-    text-align: center !important;
-}
-
-/* Sebagai fallback atau penyesuaian langsung pada elemen img */
-div[data-testid="stImageContainer"] > img {
-    display: block !important; /* Pastikan gambar diperlakukan sebagai blok */
-    margin-left: auto !important; /* Margin auto akan memusatkan blok elemen */
-    margin-right: auto !important;
-    /* Anda bisa juga menambahkan lebar di sini jika tidak ingin diatur di st.image() */
-    /* width: 250px !important; */
-}
-/* --- END: STYLING UNTUK LOGO (GAMBAR) UTAMA --- */
 
 /* General Body Styling & Font */
 html, body {
