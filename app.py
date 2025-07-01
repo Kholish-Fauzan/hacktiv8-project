@@ -61,21 +61,40 @@ st.markdown("Jelajahi potensi tak terbatas budaya dan pariwisata lokal Anda. Apl
 st.markdown(
     """
     <style>
-    /* Styling untuk logo/gambar yang ditambahkan dengan st.image */
+      /* Menargetkan kontainer terluar dari komponen st.image */
     div[data-testid="stImage"] {
-        text-align: center !important; /* Memusatkan semua konten inline/inline-block di dalamnya */
-        width: 100% !important; /* Pastikan mengambil seluruh lebar tersedia */
-        display: block !important; /* Pastikan ini adalah block element */
-        margin: 1rem 0 1.5rem 0 !important; /* Atur margin: top, right, bottom, left. */
-        padding: 0 !important; /* Hilangkan padding yang mungkin memengaruhi */
+        display: flex !important;      /* Paksa menjadi flex container */
+        flex-direction: column !important; /* Susun item secara vertikal */
+        align-items: center !important;  /* Pusatkan item (gambar) secara horizontal di dalam flex container */
+        justify-content: center !important; /* Jika ada tinggi lebih, pusatkan vertikal */
+        width: 100% !important;          /* Pastikan mengambil seluruh lebar tersedia */
+        margin: 1rem auto 1.5rem auto !important; /* Atur margin: top, auto (kiri/kanan), bottom, auto (kiri/kanan) */
+        padding: 0 !important;           /* Hilangkan padding yang mungkin memengaruhi */
     }
 
-    /* Kemudian, target img itu sendiri untuk memastikan pemusatan jika text-align tidak cukup */
+    /* Target img itu sendiri */
     div[data-testid="stImage"] img {
-        display: block !important; /* Sangat penting: jadikan gambar elemen block */
-        margin-left: auto !important; /* Memusatkan block element dengan lebar tertentu */
+        display: block !important;       /* Pastikan gambar adalah elemen block */
+        margin-left: auto !important;    /* Ini akan memusatkan gambar block */
         margin-right: auto !important;
-        /* Lebar gambar sudah diatur di st.image() */
+        max-width: 100% !important;      /* Pastikan gambar tidak melebihi lebar kontainernya */
+        height: auto !important;         /* Pertahankan rasio aspek */
+    }
+
+    /* Target kontainer langsung dari gambar jika masih ada interferensi */
+    div[data-testid="stImageContainer"] {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important; /* Atur margin ke 0 agar tidak mengganggu parent */
+    }
+
+    /* Jika masih tidak berfungsi, coba paksa text-align pada stApp (kontainer utama Streamlit) */
+    .stApp {
+        text-align: center !important; /* Ini akan memusatkan semua konten inline/inline-block di dalamnya */
     }
     </style>
     """,
