@@ -54,7 +54,8 @@ with st.sidebar:
     render_sidebar_expander_content()
 
 # --- Main Content for app.py (Homepage) ---
-st.title("Nusantara Story: Menggali Kisah Budaya, Mengenal Potensi Wisata 🗺️")
+st.image("assets/logo.png", width=300)
+st.title("Menggali Narasi Budaya, Mengenal Potensi Wisata 🗺️")
 st.markdown("Jelajahi potensi tak terbatas budaya dan pariwisata lokal Anda. Aplikasi ini dirancang untuk membantu Anda merangkai **narasi yang memikat** dan **strategi promosi cerdas**, didukung oleh kecerdasan buatan **Gemini-2.5 Flash** dan **IBM Granite**.")
 
 # Menggunakan st.form untuk input agar tidak langsung rerun saat input berubah
@@ -88,7 +89,7 @@ with st.form("story_generation_form"):
 
 
     # --- Tombol Generate di dalam form ---
-    submit_button = st.form_submit_button("Mulai Rangkai Kisah & Optimalkan Promosi! ✨", type="primary")
+    submit_button = st.form_submit_button("Mulai Rangkai Kisah & Optimalkan Promosi! ✨")
 
 # --- Logika Setelah Tombol Submit Ditekan (di luar form agar bisa mengakses st.session_state) ---
 if submit_button:

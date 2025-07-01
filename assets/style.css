@@ -109,37 +109,9 @@ strong {
     color: #2C3E50;
 }
 
-/* --- START: REVISI STREAMLIT BUTTON STYLING (Untuk Tombol Submit Form) --- */
-/* Tombol Submit Form sering memiliki data-testid="FormSubmitButton" atau berada di dalam form. */
-/* Kita akan mencoba selektor yang sangat spesifik untuk memastikan override. */
-button[kind="primaryVFormSubmit"] { /* Ini menargetkan tombol primary di dalam form secara langsung */
-    background-color: #1ABC9C !important; /* HIJAU TURQUOISE - Pastikan ini diterapkan */
-    color: white !important;
-    font-weight: bold;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    border: none;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: auto;
-    display: inline-block;
-}
-
-button[kind="primaryVFormSubmit"]:hover {
-    background-color: #16A085 !important; /* HIJAU LEBIH GELAP SAAT HOVER */
-    transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-}
-
-button[kind="primaryVFormSubmit"]:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Selektor umum untuk semua tombol Streamlit (jika tombol submit bukan dari form) */
+/* Streamlit Button Styling */
 .stButton>button {
-    background-color: #1ABC9C !important; /* HIJAU TURQUOISE - Pastikan ini diterapkan */
+    background-color: #1ABC9C !important; /* HIJAU TURQUOISE */
     color: white !important;
     font-weight: bold;
     padding: 0.75rem 1.5rem;
@@ -153,7 +125,7 @@ button[kind="primaryVFormSubmit"]:active {
 }
 
 .stButton>button:hover {
-    background-color: #16A085 !important;
+    background-color: #16A085 !important; /* Hijau lebih gelap */
     transform: translateY(-2px);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
@@ -162,8 +134,6 @@ button[kind="primaryVFormSubmit"]:active {
     transform: translateY(0);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-/* --- END: REVISI STREAMLIT BUTTON STYLING --- */
-
 
 /* Streamlit Input Fields */
 div[data-testid="stTextInput"],
