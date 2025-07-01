@@ -54,14 +54,11 @@ with st.sidebar:
     render_sidebar_expander_content()
 
 # --- Main Content for app.py (Homepage) ---
-col_logo, col_title = st.columns([1, 3]) #
+col1, col2, col3 = st.columns([1, 2, 1])
+with col2:
+    st.image("assets/logo.png", use_column_width=True)
 
-with col_logo: # Masukkan logo di kolom pertama
-    st.image("assets/logo.png", width=175) # Coba width lebih kecil untuk logo samping teks
-
-with col_title: # Masukkan judul di kolom kedua
-    st.title("Menggali Narasi Budaya, Mengenal Potensi Wisata 🗺️")
-
+st.title("Menggali Narasi Budaya, Mengenal Potensi Wisata 🗺️")
 st.markdown("Jelajahi potensi tak terbatas budaya dan pariwisata lokal Anda. Aplikasi ini dirancang untuk membantu Anda merangkai **narasi yang memikat** dan **strategi promosi cerdas**, didukung oleh kecerdasan buatan **Gemini-2.5 Flash** dan **IBM Granite**.")
 
 # Menggunakan st.form untuk input agar tidak langsung rerun saat input berubah
