@@ -134,18 +134,12 @@ strong {
 }
 
 /* Streamlit Input Fields */
-div[data-testid="stTextInput"],
-div[data-testid="stSelectbox"],
-div[data-testid="stTextArea"],
-div[data-testid="stDateInput"],
-div[data-testid="stNumberInput"] {
+.st-input-container {
     margin-bottom: 15px;
 }
 
-div[data-testid="stTextInput"] input,
-div[data-testid="stTextArea"] textarea,
-div[data-testid="stNumberInput"] input,
-div[data-testid="stDateInput"] input {
+.st-input-container input,
+.st-input-container textarea {
     border-radius: 0.5rem;
     border: 1px solid #BDC3C7;
     padding: 0.75rem 1rem;
@@ -156,27 +150,32 @@ div[data-testid="stDateInput"] input {
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-div[data-testid="stTextInput"] input:focus,
-div[data-testid="stTextArea"] textarea:focus,
-div[data-testid="stNumberInput"] input:focus,
-div[data-testid="stDateInput"] input:focus {
+.st-input-container input:focus,
+.st-input-container textarea:focus {
     border-color: #1ABC9C;
     box-shadow: 0 0 0 0.2rem rgba(26, 188, 156, 0.25);
     outline: none;
 }
 
-div[data-testid="stSelectbox"] .st-emotion-cache-1gcsa8n {
+.st-selectbox {
+    position: relative;
+}
+
+.st-selectbox .st-selectbox-input {
     border-radius: 0.5rem;
     border: 1px solid #BDC3C7;
     background-color: white;
     box-sizing: border-box;
+    padding: 0.75rem 1rem;
 }
-div[data-testid="stSelectbox"] .st-emotion-cache-1gcsa8n:focus-within {
+
+.st-selectbox:focus-within .st-selectbox-input {
     border-color: #1ABC9C;
     box-shadow: 0 0 0 0.2rem rgba(26, 188, 156, 0.25);
     outline: none;
 }
-div[data-testid="stSelectbox"] .st-emotion-cache-1gcsa8n .st-emotion-cache-1d37g3y {
+
+.st-selectbox .st-selectbox-option {
     color: #333;
     font-size: 1rem;
     padding: 0.75rem 1rem;
