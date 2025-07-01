@@ -2,6 +2,7 @@ import streamlit as st
 import json
 import pandas as pd
 from datetime import datetime
+import base64
 
 # Import dari file konfigurasi
 from config import GOOGLE_API_KEY, get_gemini_model
@@ -53,13 +54,17 @@ with st.sidebar:
     render_custom_sidebar_content()
     render_sidebar_expander_content()
 
+# --- Reading Logo ---
+with open("assets/logo.png", "rb") as image_file:
+    encoded_image = base64.b64encode(image_file.read()).decode()
+
 # --- Main Content for app.py (Homepage) ---
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
     st.markdown(
-        """
+        f"""
         <div style="display: flex; justify-content: center;">
-            <img src="assets/logo.png" style="width: 150px;" />
+            <img src="data:image/png;base64,{encoded_image}" style="width: 150px;" />
         </div>
         """,
         unsafe_allow_html=True
