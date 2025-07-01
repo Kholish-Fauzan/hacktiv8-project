@@ -54,10 +54,10 @@ with st.sidebar:
     render_sidebar_expander_content()
 
 # --- Main Content for app.py (Homepage) ---
-col_logo, col_title = st.columns([2, 3]) #
+col_logo, col_title = st.columns([1, 3]) #
 
 with col_logo: # Masukkan logo di kolom pertama
-    st.image("assets/logo.png", width=70) # Coba width lebih kecil untuk logo samping teks
+    st.image("assets/logo.png", width=250) # Coba width lebih kecil untuk logo samping teks
 
 with col_title: # Masukkan judul di kolom kedua
     st.title("Menggali Narasi Budaya, Mengenal Potensi Wisata 🗺️")
