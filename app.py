@@ -53,27 +53,35 @@ with st.sidebar:
     render_custom_sidebar_content()
     render_sidebar_expander_content()
 
-# --- Main Content for app.py (Homepage) ---
-st.image("assets/logo.png", width=250)
-st.title("Menggali Narasi Budaya, Mengenal Potensi Wisata 🗺️")
-st.markdown("Jelajahi potensi tak terbatas budaya dan pariwisata lokal Anda. Aplikasi ini dirancang untuk membantu Anda merangkai **narasi yang memikat** dan **strategi promosi cerdas**, didukung oleh kecerdasan buatan **Gemini-2.5 Flash** dan **IBM Granite**.")
-
 st.markdown(
     """
     <style>
-      /* Menargetkan kontainer terluar dari komponen st.image */
+    /* Styling paling kuat untuk memusatkan gambar */
+
+    /* Target kontainer terluar dari komponen st.image */
     div[data-testid="stImage"] {
         display: flex !important;      /* Paksa menjadi flex container */
-        flex-direction: column !important; /* Susun item secara vertikal */
+        flex-direction: column !important; /* Susun item secara vertikal (untuk align-items bekerja horizontal) */
         align-items: center !important;  /* Pusatkan item (gambar) secara horizontal di dalam flex container */
-        justify-content: center !important; /* Jika ada tinggi lebih, pusatkan vertikal */
+        justify-content: center !important; /* Pastikan konten utama juga di tengah */
         width: 100% !important;          /* Pastikan mengambil seluruh lebar tersedia */
-        margin: 1rem auto 1.5rem auto !important; /* Atur margin: top, auto (kiri/kanan), bottom, auto (kiri/kanan) */
+        margin: 1rem auto 1.5rem auto !important; /* Atur margin: top, auto (kiri/kanan), bottom, auto (kiri/kanan) untuk memusatkan div ini sendiri jika perlu*/
         padding: 0 !important;           /* Hilangkan padding yang mungkin memengaruhi */
     }
 
-    /* Target img itu sendiri */
-    div[data-testid="stImage"] img {
+    /* Target kontainer langsung dari gambar */
+    div[data-testid="stImageContainer"] {
+        display: flex !important;      /* Paksa menjadi flex container */
+        flex-direction: column !important; /* Susun item secara vertikal */
+        align-items: center !important;  /* Pusatkan gambar secara horizontal di dalam flex container */
+        justify-content: center !important; /* Pusatkan secara vertikal jika ada ruang */
+        width: 100% !important;          /* Pastikan mengambil seluruh lebar tersedia */
+        margin: 0 !important;            /* Hilangkan margin default */
+        padding: 0 !important;           /* Hilangkan padding default */
+    }
+
+    /* Target img itu sendiri sebagai fallback/konfirmasi */
+    div[data-testid="stImageContainer"] img {
         display: block !important;       /* Pastikan gambar adalah elemen block */
         margin-left: auto !important;    /* Ini akan memusatkan gambar block */
         margin-right: auto !important;
@@ -81,25 +89,20 @@ st.markdown(
         height: auto !important;         /* Pertahankan rasio aspek */
     }
 
-    /* Target kontainer langsung dari gambar jika masih ada interferensi */
-    div[data-testid="stImageContainer"] {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        width: 100% !important;
-        padding: 0 !important;
-        margin: 0 !important; /* Atur margin ke 0 agar tidak mengganggu parent */
-    }
-
-    /* Jika masih tidak berfungsi, coba paksa text-align pada stApp (kontainer utama Streamlit) */
+    /* Ini sebagai "nuclear option" jika semua di atas gagal,
+       akan memusatkan semua konten inline/inline-block di stApp */
     .stApp {
-        text-align: center !important; /* Ini akan memusatkan semua konten inline/inline-block di dalamnya */
+        /* text-align: center !important; */ /* Komentari ini dulu. Kita coba yang lebih spesifik dulu. */
     }
     </style>
     """,
     unsafe_allow_html=True
 )
+
+# --- Main Content for app.py (Homepage) ---
+st.image("assets/logo.png", width=250)
+st.title("Menggali Narasi Budaya, Mengenal Potensi Wisata 🗺️")
+st.markdown("Jelajahi potensi tak terbatas budaya dan pariwisata lokal Anda. Aplikasi ini dirancang untuk membantu Anda merangkai **narasi yang memikat** dan **strategi promosi cerdas**, didukung oleh kecerdasan buatan **Gemini-2.5 Flash** dan **IBM Granite**.")
 
 # Menggunakan st.form untuk input agar tidak langsung rerun saat input berubah
 with st.form("story_generation_form"):
