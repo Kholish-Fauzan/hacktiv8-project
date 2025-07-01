@@ -44,8 +44,7 @@ div[data-testid="stImageContainer"] {
     align-items: center !important; /* Pusatkan secara vertikal jika ada tinggi */
     margin: 1rem auto 1.5rem auto !important; /* Atur margin: top, right(auto), bottom, left(auto) */
     width: auto !important; /* Pastikan lebarnya fleksibel atau auto */
-    /* Jika masih tidak bekerja, coba tambahkan: */
-    /* text-align: center !important; */
+    text-align: center !important;
 }
 
 /* Sebagai fallback atau penyesuaian langsung pada elemen img */
