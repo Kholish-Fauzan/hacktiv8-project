@@ -40,10 +40,10 @@ div[data-testid="stSidebar"] > div > section:first-child > div:nth-child(2) {
 
 /* Styling Logo */
 div[data-testid="stImage"] {
-    display: flex; /* Menggunakan flexbox untuk pemusatan konten */
-    justify-content: center; /* Memusatkan konten secara horizontal */
-    margin-bottom: 1.5rem; /* Memberikan sedikit ruang di bawah logo sebelum judul */
-    margin-top: 1rem; /* Memberikan sedikit ruang di atas logo */
+    display: flex !important; /* Menggunakan flexbox untuk pemusatan konten */
+    justify-content: center !important; /* Memusatkan konten secara horizontal */
+    margin-bottom: 1.5rem !important; /* Memberikan sedikit ruang di bawah logo sebelum judul */
+    margin-top: 1rem !important; /* Memberikan sedikit ruang di atas logo */
 }
 
 /* General Body Styling & Font */
