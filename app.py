@@ -54,16 +54,33 @@ with st.sidebar:
     render_sidebar_expander_content()
 
 # --- Main Content for app.py (Homepage) ---
+st.image("assets/logo.png", width=250, alt="Nusantara Story Logo")
+st.title("Menggali Narasi Budaya, Mengenal Potensi Wisata 🗺️")
+st.markdown("Jelajahi potensi tak terbatas budaya dan pariwisata lokal Anda. Aplikasi ini dirancang untuk membantu Anda merangkai **narasi yang memikat** dan **strategi promosi cerdas**, didukung oleh kecerdasan buatan **Gemini-2.5 Flash** dan **IBM Granite**.")
+
 st.markdown(
     """
-    <div id="main-logo-container">
-        <img src="/assets/logo.png" alt="Nusantara Story Logo" style="width: 250px;">
-    </div>
+    <style>
+    /* Styling untuk logo/gambar yang ditambahkan dengan st.image */
+    div[data-testid="stImage"] {
+        text-align: center !important; /* Memusatkan semua konten inline/inline-block di dalamnya */
+        width: 100% !important; /* Pastikan mengambil seluruh lebar tersedia */
+        display: block !important; /* Pastikan ini adalah block element */
+        margin: 1rem 0 1.5rem 0 !important; /* Atur margin: top, right, bottom, left. */
+        padding: 0 !important; /* Hilangkan padding yang mungkin memengaruhi */
+    }
+
+    /* Kemudian, target img itu sendiri untuk memastikan pemusatan jika text-align tidak cukup */
+    div[data-testid="stImage"] img {
+        display: block !important; /* Sangat penting: jadikan gambar elemen block */
+        margin-left: auto !important; /* Memusatkan block element dengan lebar tertentu */
+        margin-right: auto !important;
+        /* Lebar gambar sudah diatur di st.image() */
+    }
+    </style>
     """,
     unsafe_allow_html=True
 )
-st.title("Menggali Narasi Budaya, Mengenal Potensi Wisata 🗺️")
-st.markdown("Jelajahi potensi tak terbatas budaya dan pariwisata lokal Anda. Aplikasi ini dirancang untuk membantu Anda merangkai **narasi yang memikat** dan **strategi promosi cerdas**, didukung oleh kecerdasan buatan **Gemini-2.5 Flash** dan **IBM Granite**.")
 
 # Menggunakan st.form untuk input agar tidak langsung rerun saat input berubah
 with st.form("story_generation_form"):

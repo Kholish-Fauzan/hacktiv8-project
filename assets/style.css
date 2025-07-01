@@ -37,25 +37,6 @@ div[data-testid="stSidebar"] > div > section:first-child > div:nth-child(2) {
     margin-top: 0 !important;
 }
 
-/* --- START: STYLING UNTUK LOGO (GAMBAR) UTAMA --- */
-
-#main-logo-container {
-    text-align: center !important; /* Memusatkan semua konten inline/inline-block di dalamnya */
-    margin: 1rem auto 1.5rem auto !important; /* Atur margin: top, right(auto), bottom, left(auto) */
-    width: fit-content !important; /* Pastikan lebarnya sesuai dengan konten, agar margin auto bekerja */
-    display: block !important; /* Penting: Jadikan container ini block agar margin auto bekerja */
-}
-
-/* Kemudian, target img di dalam kontainer kustom */
-#main-logo-container img {
-    display: block !important; /* Sangat penting: jadikan gambar elemen block */
-    margin-left: auto !important; /* Memusatkan block element dengan lebar tertentu */
-    margin-right: auto !important;
-    /* width: 250px !important; */
-}
-
-/* --- END: STYLING UNTUK LOGO (GAMBAR) UTAMA --- */
-
 /* General Body Styling & Font */
 html, body {
     font-family: 'Poppins', sans-serif;
