@@ -56,7 +56,7 @@ with st.sidebar:
 # --- Main Content for app.py (Homepage) ---
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
-    st.image("assets/logo.png", use_container_width=True)
+    st.image("assets/logo.png", use_container_width=True, width=200)
 
 st.title("Menggali Narasi Budaya, Mengenal Potensi Wisata 🗺️")
 st.markdown("Jelajahi potensi tak terbatas budaya dan pariwisata lokal Anda. Aplikasi ini dirancang untuk membantu Anda merangkai **narasi yang memikat** dan **strategi promosi cerdas**, didukung oleh kecerdasan buatan **Gemini-2.5 Flash** dan **IBM Granite**.")
