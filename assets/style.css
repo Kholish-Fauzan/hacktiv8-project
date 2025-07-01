@@ -38,13 +38,25 @@ div[data-testid="stSidebar"] > div > section:first-child > div:nth-child(2) {
 }
 /* --- END: CSS untuk MENYEMBUNYIKAN NAVIGASI DUPLIKAT DI SIDEBAR --- */
 
-/* Styling Logo */
-div[data-testid="stImage"] {
-    display: flex !important; /* Menggunakan flexbox untuk pemusatan konten */
-    justify-content: center !important; /* Memusatkan konten secara horizontal */
-    margin-bottom: 1.5rem !important; /* Memberikan sedikit ruang di bawah logo sebelum judul */
-    margin-top: 1rem !important; /* Memberikan sedikit ruang di atas logo */
+div[data-testid="stImageContainer"] {
+    display: flex !important; /* Gunakan flexbox */
+    justify-content: center !important; /* Pusatkan secara horizontal */
+    align-items: center !important; /* Pusatkan secara vertikal jika ada tinggi */
+    margin: 1rem auto 1.5rem auto !important; /* Atur margin: top, right(auto), bottom, left(auto) */
+    width: auto !important; /* Pastikan lebarnya fleksibel atau auto */
+    /* Jika masih tidak bekerja, coba tambahkan: */
+    /* text-align: center !important; */
 }
+
+/* Sebagai fallback atau penyesuaian langsung pada elemen img */
+div[data-testid="stImageContainer"] > img {
+    display: block !important; /* Pastikan gambar diperlakukan sebagai blok */
+    margin-left: auto !important; /* Margin auto akan memusatkan blok elemen */
+    margin-right: auto !important;
+    /* Anda bisa juga menambahkan lebar di sini jika tidak ingin diatur di st.image() */
+    /* width: 250px !important; */
+}
+/* --- END: STYLING UNTUK LOGO (GAMBAR) UTAMA --- */
 
 /* General Body Styling & Font */
 html, body {
