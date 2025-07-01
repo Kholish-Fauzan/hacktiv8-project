@@ -54,7 +54,14 @@ with st.sidebar:
     render_sidebar_expander_content()
 
 # --- Main Content for app.py (Homepage) ---
-st.image("assets/logo.png", width=250)
+st.markdown(
+    """
+    <div id="main-logo-container">
+        <img src="app/assets/logo.png" alt="Nusantara Story Logo" style="width: 250px;">
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 st.title("Menggali Narasi Budaya, Mengenal Potensi Wisata 🗺️")
 st.markdown("Jelajahi potensi tak terbatas budaya dan pariwisata lokal Anda. Aplikasi ini dirancang untuk membantu Anda merangkai **narasi yang memikat** dan **strategi promosi cerdas**, didukung oleh kecerdasan buatan **Gemini-2.5 Flash** dan **IBM Granite**.")
 

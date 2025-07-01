@@ -36,25 +36,33 @@ div[data-testid="stSidebar"] > div > section:first-child > div:nth-child(2) {
     padding-top: 0 !important;
     margin-top: 0 !important;
 }
-/* --- END: CSS untuk MENYEMBUNYIKAN NAVIGASI DUPLIKAT DI SIDEBAR --- */
 
-div[data-testid="stImageContainer"] {
-    display: flex !important; /* Gunakan flexbox */
-    justify-content: center !important; /* Pusatkan secara horizontal */
-    align-items: center !important; /* Pusatkan secara vertikal jika ada tinggi */
-    margin: 1rem auto 1.5rem auto !important; /* Atur margin: top, right(auto), bottom, left(auto) */
-    width: auto !important; /* Pastikan lebarnya fleksibel atau auto */
-    text-align: center !important;
+/* --- START: STYLING UNTUK LOGO (GAMBAR) UTAMA --- */
+
+/* Menargetkan kontainer terluar dari komponen st.image */
+div[data-testid="stImage"] {
+    text-align: center !important; /* Ini akan memusatkan semua konten inline/inline-block di dalamnya */
+    width: 100% !important; /* Pastikan mengambil seluruh lebar tersedia */
+    display: block !important; /* Pastikan ini adalah block element */
+    margin: 1rem 0 1.5rem 0 !important; /* Atur margin: top, right, bottom, left. Jangan pakai auto di sini. */
+    padding: 0 !important; /* Hilangkan padding yang mungkin memengaruhi */
 }
 
-/* Sebagai fallback atau penyesuaian langsung pada elemen img */
-div[data-testid="stImageContainer"] > img {
-    display: block !important; /* Pastikan gambar diperlakukan sebagai blok */
-    margin-left: auto !important; /* Margin auto akan memusatkan blok elemen */
+/* Kemudian, target img itu sendiri untuk memastikan pemusatan jika text-align tidak cukup */
+div[data-testid="stImage"] img {
+    display: block !important; /* Sangat penting: jadikan gambar elemen block */
+    margin-left: auto !important; /* Memusatkan block element dengan lebar tertentu */
     margin-right: auto !important;
-    /* Anda bisa juga menambahkan lebar di sini jika tidak ingin diatur di st.image() */
-    /* width: 250px !important; */
+    /* Lebar gambar tetap diatur di st.image() di app.py, misal width=250 */
 }
+
+/* Jika Anda ingin juga memastikan stImageContainer tidak mengganggu, Anda bisa atur: */
+div[data-testid="stImageContainer"] {
+    display: block !important; /* Pastikan juga ini block */
+    width: auto !important; /* Biarkan lebarnya sesuai konten */
+    text-align: center !important; /* Pastikan juga ini memusatkan */
+}
+
 /* --- END: STYLING UNTUK LOGO (GAMBAR) UTAMA --- */
 
 /* General Body Styling & Font */
