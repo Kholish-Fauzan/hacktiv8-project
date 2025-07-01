@@ -64,7 +64,7 @@ with col2:
     st.markdown(
         f"""
         <div style="display: flex; justify-content: center;">
-            <img src="data:image/png;base64,{encoded_image}" style="width: 150px;" />
+            <img src="data:image/png;base64,{encoded_image}" style="width: 200px;" />
         </div>
         """,
         unsafe_allow_html=True
