@@ -57,7 +57,7 @@ with st.sidebar:
 st.markdown(
     """
     <div id="main-logo-container">
-        <img src="assets/logo.png" alt="Nusantara Story Logo" style="width: 250px;">
+        <img src="/assets/logo.png" alt="Nusantara Story Logo" style="width: 250px;">
     </div>
     """,
     unsafe_allow_html=True
