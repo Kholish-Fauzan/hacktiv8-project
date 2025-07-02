@@ -19,14 +19,14 @@ except Exception as e:
     st.error(f"Maaf, kami mengalami masalah teknis. Silakan coba lagi nanti atau hubungi pengembang.")
     st.stop()
 
-# --- Streamlit UI Setup (Hanya di app.py) ---
+# --- Streamlit UI Setup ---
 st.set_page_config(
     page_title="Beranda Utama",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-# --- Load Custom CSS (Hanya di app.py yang pertama kali memuatnya, tapi akan dimuat ulang di setiap halaman `pages/` juga) ---
+# --- Load Custom CSS ---
 def load_css(file_name):
     with open(file_name) as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
@@ -103,15 +103,14 @@ with st.form("story_generation_form"):
     st.markdown('<p class="custom-help-text">Ini adalah informasi inti untuk Kami merangkai cerita. Beri detail sebanyak mungkin!</p>', unsafe_allow_html=True)
 
 
-    # --- Tombol Generate di dalam form ---
-    submit_button = st.form_submit_button("Mulai Rangkai Kisah & Optimalkan Promosi! ✨")
+    # --- Generate Button ---
+    submit_button = st.form_submit_button("Mulai Rangkai Narasi & Jelajahi Potensi Promosi! ✨")
 
 # --- Logika Setelah Tombol Submit Ditekan (di luar form agar bisa mengakses st.session_state) ---
 if submit_button:
     if not judul_objek or not deskripsi_kunci or not lokasi_objek:
         st.warning("Mohon lengkapi semua kolom yang bertanda '*' (Wajib diisi) sebelum melanjutkan! 🙏")
     else:
-        # Hapus hasil sebelumnya dari session state untuk memastikan hasil baru
         st.session_state.generated_narration = ""
         st.session_state.generated_analysis = {}
         st.session_state.narasi_pdf_bytes = None
@@ -139,13 +138,13 @@ if submit_button:
                     st.session_state.narasi_file_name = ""
 
             else:
-                st.session_state.generated_narration = "" # Kosongkan jika gagal
-                st.error("Maaf, Kami gagal merangkai narasi yang valid. Coba ulangi atau sesuaikan input Anda.") # Tampilkan error di bagian bawah
+                st.session_state.generated_narration = ""
+                st.error("Maaf, Kami gagal merangkai narasi yang valid. Coba ulangi atau sesuaikan input Anda.")
 
         # --- Tahap 2: Analisis & Optimasi oleh Gemini ---
-        if st.session_state.generated_narration:  # Ensure narration is generated before analysis
-            if analysis_data := generate_analysis_data(gemini_model, lokasi_objek, st.session_state.generated_narration):  # Generate and assign analysis data
-                st.session_state.generated_analysis = analysis_data  # Store generated analysis data in session state
+        if st.session_state.generated_narration: 
+            if analysis_data := generate_analysis_data(gemini_model, lokasi_objek, st.session_state.generated_narration):
+                st.session_state.generated_analysis = analysis_data
 
                 # Generate PDF bytes for analysis and store in session state
                 pdf_bytes_analysis_temp = generate_analysis_pdf(analysis_data, f"Analisis_{judul_objek}")
