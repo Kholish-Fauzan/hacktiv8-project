@@ -157,4 +157,4 @@ Akses via browser di [http://localhost:8501](http://localhost:8501)
 
 ---
 
-*This project is developed by **Ahmad Kholish Fauzan Shobiry** throughout the **Student Developer Initiavite** program from **HACKTIV8**.*
+*This project is developed by **Ahmad Kholish Fauzan Shobiry** throughout the **Student Developer Initiavite** program from **HACKTIV8** in collaboration with **IBM**.*
