@@ -79,7 +79,16 @@ Oleh karena itu, disini **Nusantara Story** hadir sebagai solusi berbasis teknol
 - 📊 **Analisis Promosi**: Structured Output Prompting (JSON)
 
 ### 🛠️ IBM Granite 3.3-8b-Instruct
-- 🔧 Memanfaatkan teknik **Code In-Context Learning** dengan menyertakan segmen kode Python secara langsung dalam prompt. Hal ini dikombinasikan dengan **Instruction-based Prompting** dan **Goal-Oriented Prompting** untuk memandu model dalam mereview, mengoptimalkan (untuk readability, performa, best practices), dan meregenerasi kode berdasarkan saran yang diberikan, termasuk eksplorasi tentang teknik optimasi seperti batching, caching, atau tuning parameter model.
+
+- 🔧 Menggunakan teknik **Code In-Context Learning** dengan menyisipkan segmen kode Python langsung ke dalam prompt.
+- Teknik ini dikombinasikan dengan pendekatan **Instruction-based Prompting** dan **Goal-Oriented Prompting** untuk memandu model dalam:
+  - Mereview dan mengoptimalkan kode (dari segi *readability*, *performance*, dan *best practices*)
+  - Meregenerasi kode berdasarkan saran tertentu
+  - Mengeksplorasi teknik optimasi seperti **batching**, **caching**, atau **parameter tuning**
+
+📄 Implementasi model **IBM Granite 3.3-8b-Instruct** dapat dilihat pada notebook berikut:  
+➡️ [IBMGranite_code_generation_Kholish_Fauzan.ipynb](https://github.com/Kholish-Fauzan/hacktiv8-project/blob/main/IBMGranite_code_generation_Kholish_Fauzan.ipynb).
+
 
 ---
 
